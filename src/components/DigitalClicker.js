@@ -13,10 +13,17 @@ export default class DigitalClicker extends Component {
   handleClick = () => {
     //this was undefined in debugger, but works in console.log
     // console.log(this.state)
-    this.setState({
-      timesClicked: this.state.timesClicked + 1 //++ caused issue
-    })
+    //SHOULD HAVE USED PREV STATE HERE B/C SET STATE IS ASYNC
+    handleClick = () => {
+    this.setState(prevState => ({
+      timesClicked: prevState.timesClicked+1
+    }))
   }
+    
+//     this.setState({
+//       timesClicked: this.state.timesClicked + 1 //++ caused issue
+//     })
+//   }
 
   // handleClick = () => {
   //   let timesClicked = this.state.timesClicked + 1
